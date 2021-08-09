@@ -27,3 +27,7 @@ def sapa(request, nama):
 
 def example(request):
     return render(request, 'example.html')
+
+
+def newpage(request):
+    return HttpResponse("new")
