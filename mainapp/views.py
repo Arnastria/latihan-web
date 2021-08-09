@@ -31,3 +31,7 @@ def example(request):
 
 def newpage(request):
     return HttpResponse("new")
+
+
+def a(request):
+    return HttpResponse()
