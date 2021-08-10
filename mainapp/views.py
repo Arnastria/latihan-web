@@ -8,10 +8,6 @@ def landing_page(request):
     return HttpResponse("Hello, World! Nama Saya Ariq")
 
 
-def second_page(request):
-    return HttpResponse("SecondPage")
-
-
 def profile(request):
     return HttpResponse("profile ku")
 
@@ -35,3 +31,27 @@ def newpage(request):
 
 def a(request):
     return HttpResponse()
+
+
+def shop(request):
+    return render(request, 'shop.html')
+
+
+def shop_laptop(request):
+    return render(request, 'shop_laptop.html')
+
+
+def shop_console(request):
+    return render(request, 'shop_console.html')
+
+
+def shop_smartphone(request):
+    return render(request, 'shop_smartphone.html')
+
+
+def first_page(request):
+    return render(request, 'firstpage.html')
+
+
+def second_page(request):
+    return render(request, 'secondpage.html')
