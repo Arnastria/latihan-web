@@ -6,6 +6,7 @@ urlpatterns = [
     path('sapa/<str:nama>/', views.sapa),
     path('shop/', views.shop),
     path('shop/laptop/', views.shop_laptop),
+    path('shop/laptop/list/', views.shop_laptop_list),
     path('shop/smartphone/', views.shop_smartphone),
     path('shop/console/', views.shop_console),
     path('firstpage/', views.first_page),
