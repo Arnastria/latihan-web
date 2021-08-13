@@ -1,4 +1,5 @@
 from .models import *
+from .forms import *
 from django.shortcuts import render
 from django.http import HttpResponse
 
@@ -62,10 +63,20 @@ def shop_laptop_list(request):
     try:
         print(request.GET)
         category_laptop = Category.objects.get(pk=1)
-        #pk == primary_key
-        product_laptop = Product.objects.filter(category=category_laptop).filter(
-            name__contains=request.GET['product_name'])
-        # WHERE name like 'chrome'
+
+        if(request.GET == {}):
+            product_laptop = Product.objects.filter(Category=category_laptop)
+        else:
+
+            form = SearchForm(request.GET)
+            print(form.is_valid())
+
+            if(form.is_valid()):
+                product_laptop = Product.objects.filter(category=category_laptop).filter(
+                    name__contains=request.GET['product_name'])
+            else:
+                return render(request, 'shop_laptop_list.html', {'available': False})
+
         if(product_laptop.count() != 0):
             return render(request, 'shop_laptop_list.html', {'product_list': product_laptop, 'available': True})
         else:
